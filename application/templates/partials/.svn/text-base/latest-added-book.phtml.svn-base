@@ -1,9 +1,0 @@
-<?php if(isset($this->book) ):?>
-	<h1><?php echo $this->translate('Latest added book');?></h1>
-	
-	<h2><?php echo $this->linkTo($this->book->getTitle(), $this->baseUrl() . '/bookshelf/book/view/id/' . $this->book->getId() );?></h2>
-	
-	<p><?php echo $this->escape($this->date($this->book->getCreated(), 'd.m.Y')  );?></p>
-	
-	<p><?php echo $this->book->getAuthorsAsString();?></p>
-<?php endif;?>

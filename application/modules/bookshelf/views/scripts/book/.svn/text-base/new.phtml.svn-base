@@ -1,8 +1,0 @@
-<h1><?php echo $this->translate($this->createMode ? 'Add a new book' : 'Update book');?></h1>
-
-<?php if(isset($this->form) ):?>
-	<?php echo $this->form;?>
-<?php endif;?>
-
-<?php echo $this->render('book/partials/init.phtml');?>
-

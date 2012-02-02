@@ -1,8 +1,0 @@
-<div class="rounded">
-	<h1><?php echo $this->translate('Your account was successfully created');?></h1>
-	
-	<p>Hi and welcome to Munkirjat! Thank you for registering.</p>
-	
-	<p>Before you can start using your new account, you have to verify it. An account verification email has been sent to you by email. 
-	Please follow the instructions provided in the email and you can start using your account!</p>
-</div>

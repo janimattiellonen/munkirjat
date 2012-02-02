@@ -1,5 +1,0 @@
-<h1><?php echo $this->translate('Edit user');?></h1>
-
-<?php if(isset($this->form) ):?>
-	<?php echo $this->form;?>
-<?php endif;?>
