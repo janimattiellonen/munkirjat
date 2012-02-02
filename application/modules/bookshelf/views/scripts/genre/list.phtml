@@ -1,0 +1,17 @@
+<?php if(isset($this->genres) ):?>
+	<table id="genre_table">
+		<tr>
+			<th><?php echo $this->translate('Id');?></th>
+			<th><?php echo $this->translate('Name');?></th>
+		</tr>
+	<?php foreach($this->genres as $genre):
+	    $amount = $genre['amount'];
+	    $genre = $genre[0];
+	?>
+	<tr>
+		<td><?php echo $this->escape($genre->getId() );?></td>
+		<td><?php echo $this->linkTo($genre->getName() . ' (' . (int)$amount . ')', $this->baseUrl() . '/bookshelf/genre/edit/id/' . $genre->getId() );?></td>
+	</tr>		
+	<?php endforeach;?>
+	</table>
+<?php endif;?>

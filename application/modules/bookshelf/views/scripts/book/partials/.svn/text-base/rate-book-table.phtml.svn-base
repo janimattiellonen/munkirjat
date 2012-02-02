@@ -1,0 +1,40 @@
+<h2><?php echo $this->translate('Title');?>: <?php echo $this->escape($this->book->getTitle() );?></h2>
+
+<table id="book_table">
+	<tr class="odd">
+		<th><?php echo $this->translate('Author(s)');?>:</th>
+		<td>
+		<?php 
+		    echo $this->escape($this->book->getAuthorsAsString() );
+		?>
+		</td>
+	</tr>
+	<tr class="even">
+		<th><?php echo $this->translate('Genre(s)');?>:</th>
+		<td><?php echo $this->escape($this->book->getGenresAsString() );?></td>
+	</tr>
+	<tr class="odd">
+		<th><?php echo $this->translate('Language');?>:</th>
+		<td><?php echo $this->language($this->book->getLanguage() );?></td>
+	</tr>
+
+	<tr class="even">
+		<th><?php echo $this->translate('Rating');?></th>
+		<td>
+			<div id="rating-<?php echo $this->book->getId();?>"></div>
+			<?php $this->inlineScript()->captureStart(); ?>
+				
+				$('#rating-' + <?php echo $this->book->getId();?>).raty({
+					start: <?php echo $this->book->getRating();?>,
+					path: '/img/',
+					click: rate
+				});
+            <?php $this->inlineScript()->captureEnd(); ?>	
+            
+            <?php if(isset($this->mode) ):
+                echo $this->inlineScript();
+            endif;
+            ?>
+		</td>
+	</tr>
+</table>

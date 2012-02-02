@@ -1,0 +1,3 @@
+<h1><?php echo $this->translate('Author not found');?></h1>
+
+<p><?php echo $this->translate('The author you were looking for was not found.');?></p>

@@ -1,0 +1,101 @@
+<?php
+
+/**
+ * Default Layout
+ *  
+ * @author
+ * @version
+ */
+echo '<?xml version="1.0" encoding="UTF-8" ?>';
+echo $this->doctype() 
+?>
+
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<?php 
+		
+		$this->headLink()->appendStylesheet($this->baseUrl('/assets/css/1140.css') );
+		$this->headLink()->appendStylesheet($this->baseUrl('/assets/css/style.css') );
+		
+		echo $this->headTitle();
+		
+		echo $this->headLink();
+		
+		echo $this->jQuery();
+		
+	    echo $this->headScript();
+	    echo $this->headStyle();
+	    ?>
+	    
+	    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+	    
+	    
+	    <script type="text/javascript">
+    
+ 
+    </script>
+	</head>
+	
+	<body>
+		
+		<div id="nav">
+			<?php echo $this->navigation()->menu()->render(); ?>
+		</div>
+		<div id="container">
+    		<div id="sidebar_left" class="sidebar">
+    			<?php 
+                
+                                                
+                if(!($html = $this->cache('content')->load('sidebar_left') ) ):
+                    $html = $this->partial('partials/leftpanel.phtml');
+                    
+                    $this->cache('content')->save($html);
+                endif;
+                
+                echo $html;?>
+
+    		</div>			
+    		
+    		<div id="main">	
+    			<?php 
+    			if(isset($this->messages) ):
+    				foreach ($this->messages as $message): ?>
+    			        <div class="message"><div class="ui-widget">
+    						<div class="ui-state-highlight highlight ui-corner-all"> 
+    							<p>
+    			                    <span class="ui-icon ui-icon-close"></span>
+    			                    <span class="ui-icon ui-icon-info"></span>
+    			                    <?php echo $message; ?>
+    			                </p>
+    						</div>
+    					</div></div>
+    			<?php endforeach; 
+    			endif;
+    			?>
+    			
+    			<?php echo $this->layout()->content ?>
+    	
+    		</div>
+    		
+    		<div class="sidebar" id="sidebar_right">
+    			<?php 
+    			
+    			if(!($html = $this->cache('content')->load('sidebar_right') ) ):
+    				$html = $this->partial('partials/rightpanel.phtml');
+    				
+    				$this->cache('content')->save($html);
+    			endif;
+    			
+    			echo $html;
+    			?>
+    		</div>
+		</div>
+		
+		
+		
+		<?php echo $this->inlineScript();?>
+	</body>
+
+</html>

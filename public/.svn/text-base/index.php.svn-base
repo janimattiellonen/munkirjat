@@ -1,0 +1,5 @@
+<?php
+
+require_once dirname(__DIR__) . '/application/init.php';
+
+$application->run();

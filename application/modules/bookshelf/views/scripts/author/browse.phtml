@@ -1,0 +1,11 @@
+<h1><?php echo $this->translate('Search for author');?></h1>
+
+<div id="author_box">
+	<?php if(isset($this->form) ):?>
+		<?php echo $this->form;?>
+	<?php endif;?>
+
+
+	<?php echo $this->render('author/partials/init.phtml');?>
+</div>
+

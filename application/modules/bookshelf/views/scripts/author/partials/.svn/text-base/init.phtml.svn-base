@@ -1,0 +1,17 @@
+<?php $this->inlineScript()->captureStart(); ?>
+$(function() {
+    Munkirjat.author.initialize({
+    	clearField: true,
+        findAction: '<?php echo $this->url(array(
+                         'module' => 'bookshelf',
+                         'controller' => 'author',
+                         'action' => 'find',
+                         'format' => 'json',
+                       ), 'default', true); ?>'
+        ,
+        
+        
+        
+    });
+});
+<?php $this->inlineScript()->captureEnd(); ?>

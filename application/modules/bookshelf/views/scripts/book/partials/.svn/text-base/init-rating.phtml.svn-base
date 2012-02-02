@@ -1,0 +1,22 @@
+<?php $this->inlineScript()->captureStart(); ?>
+	
+	rate = function(score, evt) {
+		idStr = $(this).attr('id');
+		
+		pos = idStr.indexOf('-');
+		
+		id = idStr.substr(pos + 1, idStr.length);
+		
+		$.ajax({
+			url: '/bookshelf/book/rate-book/',
+			type: 'GET',
+			data:  'id=' + id + '&rating=' + score,
+			success: function(data)
+			{
+				
+			}
+		
+		});						
+	}
+	
+<?php $this->inlineScript()->captureEnd(); ?>

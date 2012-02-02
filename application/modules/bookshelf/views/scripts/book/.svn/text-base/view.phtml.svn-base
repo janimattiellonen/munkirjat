@@ -1,0 +1,78 @@
+<?php echo $this->render('book/partials/init-rating.phtml');?>
+
+<h1><?php echo $this->translate('Title');?>: <?php echo $this->escape($this->book->getTitle() );?></h1>
+
+
+<table id="book_table">
+	<tr class="odd">
+		<th><?php echo $this->translate('Author(s)');?>:</th>
+		<td>
+		<?php 
+		    echo $this->escape($this->book->getAuthorsAsString() );
+		?>
+		</td>
+	</tr>
+	<tr class="even">
+		<th><?php echo $this->translate('Genre(s)');?>:</th>
+		<td><?php echo $this->escape($this->book->getGenresAsString() );?></td>
+	</tr>
+	<tr class="odd">
+		<th><?php echo $this->translate('Language');?>:</th>
+		<td><?php echo $this->language($this->book->getLanguage() );?></td>
+	</tr>
+
+	<tr class="even">
+		<th><?php echo $this->translate('ISBN number');?>:</th>
+		<td><?php echo $this->escape($this->book->getIsbn() );?></td>
+	</tr>
+	<tr class="odd">
+		<th><?php echo $this->translate('Page count');?>:</th>
+		<td><?php echo $this->escape($this->book->getPageCount() );?></td>
+	</tr>
+	<tr class="even">
+		<th><?php echo $this->translate('Is read');?>:</th>
+		<td><?php 
+		
+		$f = new Jme_Filter_YesNo();
+		
+		echo $f->filter($this->book->isRead() );
+		?></td>
+	</tr>
+	
+	<tr class="odd">
+		<th><?php echo $this->translate('Rating');?></th>
+		<td>
+			<div id="rating-<?php echo $this->book->getId();?>"></div>
+			<?php 
+			if($this->book->isRead() ):
+			    $this->inlineScript()->captureStart(); ?>
+			
+				$('#rating-' + <?php echo $this->book->getId();?>).raty({
+					start: <?php echo $this->book->getRating();?>,
+					path: '/img/',
+					click: rate
+				});
+            <?php 
+                $this->inlineScript()->captureEnd(); 
+             endif;?>	
+		</td>
+	</tr>
+
+	<tr class="even">
+		<td colspan="2" class="control">
+			<?php echo $this->linkTo('Edit', '/bookshelf/book/edit/id/' . $this->book->getId() );?> |
+			
+			<?php echo $this->linkTo('Delete', '/bookshelf/book/remove/id/' . $this->book->getId(), array('id' => 'delete') );?>
+		</td>
+	</tr>
+</table>
+
+
+<?php $this->inlineScript()->captureStart(); ?>
+$(function() {
+    $('td.control a#delete').bind('click', function()
+    {
+    	return confirm('Do you really want to remove this book?');
+    });
+});
+<?php $this->inlineScript()->captureEnd(); ?>

@@ -1,0 +1,10 @@
+#genre_table
+{
+	width: 75%;	
+}
+
+#genre_table td:first-child, #genre_table th:first-child  
+{
+	text-align: right;
+	padding-right: 10px;
+}

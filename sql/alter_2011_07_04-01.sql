@@ -1,0 +1,39 @@
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
+
+ALTER TABLE `munkirjat_db`.`book` DROP COLUMN `updated` , DROP COLUMN `created` ;
+
+CREATE  TABLE IF NOT EXISTS `munkirjat_db`.`tag` (
+  `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT ,
+  `name` VARCHAR(128) NOT NULL ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8
+COLLATE = utf8_swedish_ci;
+
+CREATE  TABLE IF NOT EXISTS `munkirjat_db`.`book_tag` (
+  `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT ,
+  `book_id` INT(10) UNSIGNED NOT NULL ,
+  `tag_id` INT(10) UNSIGNED NOT NULL ,
+  PRIMARY KEY (`id`) ,
+  INDEX `fk_bt_book` (`book_id` ASC) ,
+  INDEX `fk_bt_tag` (`tag_id` ASC) ,
+  CONSTRAINT `fk_bt_book`
+    FOREIGN KEY (`book_id` )
+    REFERENCES `munkirjat_db`.`book` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_bt_tag`
+    FOREIGN KEY (`tag_id` )
+    REFERENCES `munkirjat_db`.`tag` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8
+COLLATE = utf8_swedish_ci;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

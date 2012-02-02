@@ -1,0 +1,9 @@
+<h2><?php echo $this->translate('Search');?></h2>
+<div>
+    <?php
+    
+    $form = new Bookshelf_Form_SimpleBookSearchForm();
+    
+    echo $form;
+?>
+</div>

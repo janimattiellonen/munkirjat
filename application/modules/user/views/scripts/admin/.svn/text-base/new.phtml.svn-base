@@ -1,0 +1,5 @@
+<h1><?php echo $this->translate('Create new user');?></h1>
+
+<?php if(isset($this->form) ):?>
+	<?php echo $this->form;?>
+<?php endif;?>
