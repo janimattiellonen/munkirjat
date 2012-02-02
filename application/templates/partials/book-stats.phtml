@@ -1,0 +1,70 @@
+<?php 
+	$booksInShelf = null;
+	$pageCount = null;
+?>
+
+
+<h2><?php echo $this->translate('Stats');?></h2>
+
+<div>
+
+	<?php if(isset($this->bookStats['book_count']) ):?>
+		<h3><?php echo $this->translate('Books in bookshelf');?></h3>
+		
+		<p><?php
+		echo (int)$this->bookStats['book_count']; 
+		?></p>
+	<?php endif;?>
+	
+	<?php if(isset($this->bookStats['unread_book_count']) ):?>
+		<h3><?php echo $this->linkTo('Unread books in bookshelf', $this->baseUrl() . '/bookshelf/book/list/read/0');?></h3>
+		
+		<p><?php
+		echo (int)$this->bookStats['unread_book_count']; 
+		?></p>
+	<?php endif;?>	
+	
+	<?php if(isset($this->bookStats['read_page_count']) ):?>
+		<h3><?php echo $this->translate('Pages read so far');?></h3>
+		
+		<p><?php 
+		echo (int)$this->bookStats['read_page_count'];
+		?></p>
+	<?php endif;?>
+	
+	<?php if(isset($this->bookStats['unrated_book_count']) ):?>
+		<h3><?php echo $this->linkTo('Unrated books', $this->baseUrl() . '/bookshelf/book/list/rated/0');?></h3>
+		
+		<p><?php 
+		echo (int)$this->bookStats['unrated_book_count'];
+		?></p>
+	<?php endif;?>	
+	
+	<?php if($booksInShelf > 0 && $pageCount != null):?>
+		<h3><?php echo $this->translate('Average page count');?></h3>
+			
+		<p><?php echo round((double)($pageCount / $booksInShelf), 0);?></p>
+	<?php endif;?>
+	
+	
+	<h3><?php echo $this->translate('Slowest read time');?></h3>
+		
+	<p><?php echo round($this->bookStats['slowest_pace'], 2) . ' ' . $this->translate('days');?></p>	
+	
+	
+	<h3><?php echo $this->translate('Fastest read time');?></h3>
+		
+	<p><?php echo round($this->bookStats['fastest_pace'], 2) . ' ' . $this->translate('days');?></p>	
+	
+	
+	<h3><?php echo $this->translate('Average read time / book');?></h3>
+		
+	<p><?php echo round($this->bookStats['average_pace'], 2) . ' ' . $this->translate('days');?></p>
+	
+	
+	<h3><?php echo $this->translate('Average rating');?></h3>
+		
+	<p><?php echo round($this->bookStats['average_rating'], 2);?></p>	
+	
+	
+</div>
