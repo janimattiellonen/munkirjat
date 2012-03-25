@@ -7,19 +7,6 @@ return array('resources' => array('navigation' => array('pages' => array(
         'route' => 'default',
     ),
     
-    'bar' => array (
-        'label' => 'Bar',
-        'id' => 'bar',
-        'route' => 'bar',
-    ),
-    
-    'baz' => array (
-        'label' => 'Baz',
-        'id' => 'baz',
-        'route' => 'baz',
-    ),
-    
-    
     'about' => array (
         'label' => 'About',
         'id' => 'about',
