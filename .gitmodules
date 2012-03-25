@@ -1,0 +1,9 @@
+[submodule "externals/doctrine2-orm"]
+	path = externals/doctrine2-orm
+	url = git://github.com/doctrine/doctrine2.git
+[submodule "externals/doctrine2-dbal"]
+	path = externals/doctrine2-dbal
+	url = git://github.com/doctrine/dbal.git
+[submodule "externals/doctrine2-common"]
+	path = externals/doctrine2-common
+	url = git://github.com/doctrine/common.git
