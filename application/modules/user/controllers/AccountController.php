@@ -209,6 +209,9 @@ class User_AccountController extends Munkirjat_Controller_Action
             
             if($am->authenticate($username, $password) )
             {
+                $cache = $this->_helper->getHelper('cache')->getCache('content');
+                $cache->clean();
+                
                 $this->_helper->flashMessenger($this->view->translate('You are now logged in') );
 	            $this->_redirect($this->view->baseUrl() );
             }
