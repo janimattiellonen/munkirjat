@@ -1,0 +1,24 @@
+<?php if(isset($this->authors) ):?>
+
+<table id="data_list">
+    <tr>
+        <th>#</th>
+        <th><?php echo $this->translate('Author');?></th>
+    </tr>
+    
+    <?php 
+    $r = 0;
+    
+    foreach($this->authors as $author):
+        $name = $author[0]->getFullname();
+        $str = ' ('. $author['amount'] . ')';
+        $class = $r++ % 2 == 0 ? 'odd' : 'even';
+    ?>
+        <tr class="<?php echo $class;?>">
+            <td><?php echo $r;?></td>
+            <td><?php echo $this->linkTo($name . ": " . $str, 'bookshelf/book/list/author/' . $author[0]->getId() );?></td>
+        </tr>
+    <?php endforeach;?>
+</table>
+
+<?php endif; ?>
