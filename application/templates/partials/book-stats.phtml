@@ -75,10 +75,11 @@
         $pace = (double)$this->bookStats['average_pace'];
         
         $timeLeft = round($amount  * $pace, 2);
+        $inYears = round($timeLeft / 365, 2);
     ?>
         <h3><?php echo $this->translate('Estimated time in days to read all unread books');?></h3>
 
-        <p><?php echo $timeLeft;?></p>
+        <p><?php echo $timeLeft . ' (' . $inYears . ' ' . $this->translate(' years') . ')';?></p>
     <?php endif;?>
     
 	<h3><?php echo $this->translate('Average rating');?></h3>
