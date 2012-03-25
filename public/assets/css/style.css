@@ -242,6 +242,11 @@ table#data_list td, table#data_list th
 	padding: 5px;
 }
 
+table.author_list
+{
+    width: 70%;
+}
+
 .odd
 {
 	background: #E8E8E8;
