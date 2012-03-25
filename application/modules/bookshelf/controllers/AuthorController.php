@@ -113,4 +113,14 @@ class Bookshelf_AuthorController extends Munkirjat_Controller_Action
 		$form = new Bookshelf_Form_AuthorSearchForm();
 		$this->view->form = $form;
 	}
+    
+    public function listAction()
+    {
+        $authors = $this->getModel()->listAll();
+        
+        if($authors && count($authors) > 0)
+        {
+            $this->view->authors = $authors;
+        }
+    }
 }

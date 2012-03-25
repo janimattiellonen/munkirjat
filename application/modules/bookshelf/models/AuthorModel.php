@@ -61,7 +61,12 @@ class Bookshelf_Model_AuthorModel extends \Munkirjat\Model
 	
 	public function getFavouriteAuthors()
 	{
-	    return $this->_getEntityRepository()->getFavouriteAuthors(3, 20);
+	    return $this->_getEntityRepository()->getAuthors(3, 20);
 	}
+    
+    public function listAll()
+    {
+        return $this->_getEntityRepository()->getAuthors(null, null);
+    }
 	
 }

@@ -7,32 +7,34 @@ use Doctrine\ORM\EntityRepository,
 
 class AuthorRepository extends EntityRepository
 {
-    public function getFavouriteAuthors($minBooks = 3, $limit = 20)
+    /**
+     * @param int $minBooks
+     * @param int $limit
+     * @return array 
+     */
+    public function getAuthors($minBooks = 3, $limit = 20)
     {
         $qb = $this->getEntityManager()->createQueryBuilder();
-        
         
         $qb->select('a, count(b.id) as amount')
                 ->from('\Model\Entity\Author', 'a')
                 ->leftJoin('a.books', 'b')
-                ->setMaxResults($limit)
                 ->groupBy('a.id')
-                ->orderBy('amount', 'DESC')
-                ->having('count(b.id) >= :min')
+                ->orderBy('amount', 'DESC');
+        
+        if($minBooks > 0)
+        {
+            $qb->having('count(b.id) >= :min')
                 ->setParameter('min', $minBooks);
+        }
+        
+        if($limit > 0)
+        {
+            $qb->setMaxResults($limit);
+        }
 
         return $qb->getQuery()->getResult();
     }
-    /*
-    		$q = $this->createQuery()
-				->select('COUNT(*) as amount')
-				->addSelect('a.id, a.firstname, a.lastname')
-				->from('Author a')
-				->leftJoin('a.AuthorBook ab')
-				->groupBy('ab.author_id')
-				->orderBy('amount DESC')
-				->having('amount >= ?', $minimumBookCount);
-    */
     
     public function getAuthorsByIds(array $ids = array() )
     {
