@@ -70,6 +70,17 @@
 	<p><?php echo round($this->bookStats['average_pace'], 2) . ' ' . $this->translate('days');?></p>
 	
 	
+    <?php if(isset($this->bookStats['unread_book_count']) && isset($this->bookStats['average_pace'])):
+        $amount = (int)$this->bookStats['unread_book_count'];
+        $pace = (double)$this->bookStats['average_pace'];
+        
+        $timeLeft = round($amount  * $pace, 2);
+    ?>
+        <h3><?php echo $this->translate('Estimated time in days to read all unread books');?></h3>
+
+        <p><?php echo $timeLeft;?></p>
+    <?php endif;?>
+    
 	<h3><?php echo $this->translate('Average rating');?></h3>
 		
 	<p><?php echo round($this->bookStats['average_rating'], 2);?></p>	
