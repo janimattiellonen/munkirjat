@@ -29,8 +29,8 @@ class Bookshelf_Model_StatisticsModel extends \Munkirjat\Model
 		
 		$qb->select('count(b.id) AS unread_amount')
 			->from('\Model\Entity\Book', 'b')
-			->where('b.isRead != 1');
-
+			->where('b.isRead IS NULL OR b.isRead = 0');
+        
 		$book = $qb->getQuery()->getSingleResult();
 
 		return isset($book['unread_amount']) ? $book['unread_amount'] : 0;
