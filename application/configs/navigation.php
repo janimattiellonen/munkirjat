@@ -35,6 +35,17 @@ return array('resources' => array('navigation' => array('pages' => array(
         'privilege' => 'new',
     ),
     
+    'list_authors' => array (
+        'label' => 'List authors',
+        'id' => 'list_author',
+        'route' => 'default',
+        'module' => 'bookshelf',
+        'controller' => 'author',
+        'action' => 'list',
+        'resource' => 'bookshelf_author',
+        'privilege' => 'list',
+    ),
+    
     'new_genre' => array (
         'label' => 'Add new genre',
         'id' => 'new_genre',

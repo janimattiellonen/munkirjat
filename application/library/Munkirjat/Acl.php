@@ -64,7 +64,7 @@ class Munkirjat_Acl extends Jme_Acl_Abstract
 		
 		$this->allow(null, '403_index', array('index', 'not-found') );
 		
-		$this->allow('guest', 'bookshelf_author', array('find') );
+		$this->allow('guest', 'bookshelf_author', array('find', 'list') );
 		
 		$this->allow('admin', 'bookshelf_author', array('new', 'edit', 'save') );
 		

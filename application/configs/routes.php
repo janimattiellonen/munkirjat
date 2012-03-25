@@ -12,29 +12,6 @@ return array('resources' => array('router' => array('routes' => array(
         ),
     ),
     
-    'bar' => array(
-        'type' => 'Zend_Controller_Router_Route',
-        'route' => '/bookshelf/foo/bar',
-        'defaults' => array(
-            'module' => 'bookshelf',
-    		'controller' => 'foo',
-            'action' => 'bar'
-        ),
-    ),
-    
-    
-    'baz' => array(
-        'type' => 'Zend_Controller_Router_Route',
-        'route' => '/bookshelf/foo/baz',
-        'defaults' => array(
-            'module' => 'bookshelf',
-    		'controller' => 'foo',
-            'action' => 'baz'
-        ),
-    ),
-        
-    
-    
 	'default' => array(
     	'type' => 'Zend_Controller_Router_Route',
         'route' => '/:module/:controller/:action/*',
