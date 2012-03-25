@@ -226,18 +226,18 @@ div#reasons_to_register ul
 /* sidebar end */
 
 /* book list */
-table#book_list
+table#data_list
 {
 	border-collapse:collapse;	
 	border: solid gray 1px;
 }
 
-#book_list th#book_title_col
+#data_list th#data_title_col
 {
 	width: 400px;	
 }
 
-table#book_list td, table#book_list th
+table#data_list td, table#data_list th
 {
 	padding: 5px;
 }

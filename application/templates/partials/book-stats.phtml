@@ -15,7 +15,15 @@
 		echo (int)$this->bookStats['book_count']; 
 		?></p>
 	<?php endif;?>
-	
+        
+	<?php if(isset($this->bookStats['author_count']) ):?>
+		<h3><?php echo $this->translate('Authors in bookshelf');?></h3>
+		
+		<p><?php
+		echo (int)$this->bookStats['author_count']; 
+		?></p>
+	<?php endif;?>        
+        
 	<?php if(isset($this->bookStats['unread_book_count']) ):?>
 		<h3><?php echo $this->linkTo('Unread books in bookshelf', $this->baseUrl() . '/bookshelf/book/list/read/0');?></h3>
 		
