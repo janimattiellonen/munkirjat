@@ -2,6 +2,21 @@
 
 class Bookshelf_Model_StatisticsModel extends \Munkirjat\Model
 {
+    /**
+     * @return int
+     */
+    public function getAuthorCount()
+    {
+		$qb = $this->getQueryBuilder();
+		
+		$qb->select('count(a.id) AS amount')
+			->from('\Model\Entity\Author', 'a');
+
+		$authors = $qb->getQuery()->getSingleResult();
+
+		return isset($authors['amount']) ? $authors['amount'] : 0;
+    }
+    
 	/**
 	 * 
 	 * @return int
@@ -80,14 +95,15 @@ class Bookshelf_Model_StatisticsModel extends \Munkirjat\Model
 	public function getBookStatistics()
 	{
 		$stats = array(
-			'read_page_count' => $this->getReadPageCount(),
-			'book_count' => $this->getBookCount(),
-		    'unread_book_count' => $this->getUnreadBookCount(),
-		    'unrated_book_count' => $this->getUnratedBookCount(),
-		    'average_pace' => $this->getAverageBookReadPace(),
-			'slowest_pace' => $this->getSlowestBookReadPace(),
-			'fastest_pace' => $this->getFastestBookReadPace(),
-		    'average_rating' => $this->getAverageRating(),
+            'author_count'          => $this->getAuthorCount(),
+			'read_page_count'       => $this->getReadPageCount(),
+			'book_count'            => $this->getBookCount(),
+		    'unread_book_count'     => $this->getUnreadBookCount(),
+		    'unrated_book_count'    => $this->getUnratedBookCount(),
+		    'average_pace'          => $this->getAverageBookReadPace(),
+			'slowest_pace'          => $this->getSlowestBookReadPace(),
+			'fastest_pace'          => $this->getFastestBookReadPace(),
+		    'average_rating'        => $this->getAverageRating(),
 		);
 		
 		return $stats;
