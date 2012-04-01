@@ -14,7 +14,12 @@ class Bookshelf_Model_BookModel extends \Munkirjat\Model
 		$book = $this->findOrCreate($form->getValue('id') );
 		    
 		$book->fromArray($book->getEntityValues($form), array('authors', 'genres', 'tags') );
-	    
+        
+        if(!$book->isRead() )
+        {
+            $book->setIsRead(0);
+        }
+        
 		$authors = $form->getValue('author_selections');
 		
 		if(is_array($authors) )

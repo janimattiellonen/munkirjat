@@ -103,6 +103,7 @@ class Book extends Entity
 	    $this->tags = new ArrayCollection();
 	    $this->created = $this->updated = new \DateTime();
 	    $this->rating = 0.0;
+        $this->isRead = 0;
 	}
 	
 	public function setId($id)
