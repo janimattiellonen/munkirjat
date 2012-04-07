@@ -7,3 +7,6 @@
 [submodule "externals/doctrine2-common"]
 	path = externals/doctrine2-common
 	url = git://github.com/doctrine/common.git
+[submodule "externals/Jme-project"]
+	path = externals/Jme-project
+	url = git://github.com/janimattiellonen/Jme-project.git
