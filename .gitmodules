@@ -13,3 +13,6 @@
 [submodule "externals/assetic"]
 	path = externals/assetic
 	url = https://github.com/kriswallsmith/assetic.git
+[submodule "externals/symfony2"]
+	path = externals/symfony2
+	url = https://github.com/symfony/symfony.git
