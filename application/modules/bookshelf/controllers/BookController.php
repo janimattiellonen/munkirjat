@@ -4,13 +4,14 @@ class Bookshelf_BookController extends Munkirjat_Controller_Action
 	public function init()
 	{
 		parent::init();
-		
+		/*
 		$this->view->inlineScript()->appendFile('/assets/js/bsmselect.js');  
 		$this->view->inlineScript()->appendFile('/assets/js/bsmselect.sortable.js');  
 		$this->view->inlineScript()->appendFile('/assets/js/bsmselect.compatibility.js');  
         $this->view->inlineScript()->appendFile('/assets/js/Jme/selector.js'); 
 		$this->view->inlineScript()->appendFile('/assets/js/bookshelf/bookshelf.js'); 
-         
+        */
+        
         $this->view->headLink()->appendStylesheet('/assets/css/bsmselect.css');  
         
         $id = $this->_request->getParam('id');
@@ -68,7 +69,7 @@ class Bookshelf_BookController extends Munkirjat_Controller_Action
 	    if($this->_request->isPost() )
 	    {
 	        $post = $this->_request->getPost();
-	        
+            
 	        if(isset($post['cancel']) )
 	        {
 	            $this->_helper->flashMessenger($this->view->translate('Action cancelled.') );
@@ -96,7 +97,7 @@ class Bookshelf_BookController extends Munkirjat_Controller_Action
 	
 	public function listAction()
 	{
-	    $this->view->inlineScript()->appendFile('/assets/js/jquery.raty-1.4.0/js/jquery.raty.min.js'); 
+	    //$this->view->inlineScript()->appendFile('/assets/js/jquery.raty-1.4.0/js/jquery.raty.min.js'); 
 	    
         $cache = $this->_helper->getHelper('cache')->getCache('content');
 
@@ -137,7 +138,7 @@ class Bookshelf_BookController extends Munkirjat_Controller_Action
 	
 	public function rateUnratedBookAction()
 	{
-	    $this->view->inlineScript()->appendFile('/assets/js/jquery.raty-1.4.0/js/jquery.raty.min.js'); 
+	    //$this->view->inlineScript()->appendFile('/assets/js/jquery.raty-1.4.0/js/jquery.raty.min.js'); 
 	    
 	    $bm = new Bookshelf_Model_BookModel();
 	    

@@ -24,18 +24,28 @@ echo $this->doctype()
 		echo $this->headLink();
 		
 		echo $this->jQuery();
-		
+        
+        
+        $jsFile = $this->assetic(ROOT . '/public/assets/assetic/js/main.js', '/assets/assetic/js/main.js?v=2')->addJsFiles(array(
+            ROOT . '/public/assets/js/munkirjat.js',
+            ROOT . '/public/assets/js/user/account.js',
+            ROOT . '/public/assets/js/jquery.ui.sortable.js',
+            ROOT . '/public/assets/js/jquery.ui.draggable.js',
+            ROOT . '/public/assets/js/bsmselect.js',
+            ROOT . '/public/assets/js/bsmselect.sortable.js',
+            ROOT . '/public/assets/js/bsmselect.compatibility.js',
+            ROOT . '/public/assets/js/Jme/selector.js',
+            ROOT . '/public/assets/js/bookshelf/author.js',
+            ROOT . '/public/assets/js/bookshelf/bookshelf.js',
+            ROOT . '/public/assets/js/jquery.raty-1.4.0/js/jquery.raty.min.js',
+        ))->dumpJs();    
+        
+        $this->inlineScript()->offsetSetFile(-100, $jsFile);
+        
 	    echo $this->headScript();
 	    echo $this->headStyle();
 	    ?>
-	    
-	    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-	    
-	    
-	    <script type="text/javascript">
-    
- 
-    </script>
+
 	</head>
 	
 	<body>
@@ -93,7 +103,7 @@ echo $this->doctype()
     		</div>
 		</div>
 		
-		
+		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 		
 		<?php echo $this->inlineScript();?>
 	</body>

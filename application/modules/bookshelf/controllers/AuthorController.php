@@ -96,6 +96,7 @@ class Bookshelf_AuthorController extends Munkirjat_Controller_Action
 	
 	public function browseAction()
 	{
+        /*
 		$this->view->inlineScript()->appendFile('/assets/js/jquery.ui.sortable.js');  
 		$this->view->inlineScript()->appendFile('/assets/js/jquery.ui.draggable.js');  
 		
@@ -106,7 +107,7 @@ class Bookshelf_AuthorController extends Munkirjat_Controller_Action
 		$this->view->inlineScript()->appendFile('/assets/js/bsmselect.compatibility.js'); 
 		$this->view->inlineScript()->appendFile('/assets/js/Jme/selector.js'); 		
 		$this->view->inlineScript()->appendFile('/assets/js/bookshelf/author.js');
-		
+		*/
         $this->view->headLink()->appendStylesheet('/assets/css/bsmselect.css');  
 		
 		

@@ -1,5 +1,7 @@
 <?php
 
+define('ROOT', dirname(dirname(__FILE__) ) );
+
 // Define path to application directory
 defined('APPLICATION_PATH')
     || define('APPLICATION_PATH', realpath(dirname(__DIR__) . '/application'));

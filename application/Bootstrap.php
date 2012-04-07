@@ -24,14 +24,30 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $view->addHelperPath("Munkirjat/View/Helper", "Munkirjat_View_Helper");
         $view->addHelperPath("Jme/View/Helper", "Jme_View_Helper");
         
-        // TODO: Update jQuery version and add to project.
+        $view->jQuery()->setLocalPath('http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js')
+               ->setUiLocalPath('https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js')
+               ->enable()->uiEnable();
+        
+        /*
         $view->jQuery()->setLocalPath($view->baseUrl('assets/js/jquery-1.6.1.min.js'))
                        ->setUiLocalPath($view->baseUrl('assets/js/jquery-ui-1.8.11.custom.min.js'))
                        ->enable()->uiEnable();
+        */
 
         $view->headLink()->appendStylesheet($view->baseUrl('assets/css/jquery-ui-1.8.11.custom.css'));
         
-        $view->inlineScript()->appendFile($view->baseUrl('assets/js/munkirjat.js'));
+        //$view->inlineScript()->appendFile($view->baseUrl('assets/js/munkirjat.js'));
+    }
+    
+    protected function _initYuiCompressor()
+    {
+        $yui      = $this->getOption('yuicompressor');
+        
+        if(isset($yui['path']) )
+        {
+            defined('YUICOMPRESSOR_PATH') ||
+                define('YUICOMPRESSOR_PATH', $yui['path']);
+        }
     }
     
     /**
