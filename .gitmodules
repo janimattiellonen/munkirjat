@@ -10,3 +10,6 @@
 [submodule "externals/Jme-project"]
 	path = externals/Jme-project
 	url = git://github.com/janimattiellonen/Jme-project.git
+[submodule "externals/assetic"]
+	path = externals/assetic
+	url = https://github.com/kriswallsmith/assetic.git
