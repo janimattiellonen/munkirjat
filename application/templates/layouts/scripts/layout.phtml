@@ -16,8 +16,8 @@ echo $this->doctype()
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<?php 
 		
-		$this->headLink()->appendStylesheet($this->baseUrl('/assets/css/1140.css') );
-		$this->headLink()->appendStylesheet($this->baseUrl('/assets/css/style.css') );
+		//$this->headLink()->appendStylesheet($this->baseUrl('/assets/css/1140.css') );
+		//$this->headLink()->appendStylesheet($this->baseUrl('/assets/css/style.css') );
 		
 		echo $this->headTitle();
 		
@@ -40,10 +40,20 @@ echo $this->doctype()
             ROOT . '/public/assets/js/jquery.raty-1.4.0/js/jquery.raty.min.js',
         ))->dumpJs();    
         
+        
+        $cssFile = $this->assetic(ROOT . '/public/assets/assetic/css/main.css', '/assets/assetic/css/main.css?v=2')->addCssFiles(array(
+            ROOT . '/public/assets/css/1140.css',
+            ROOT . '/public/assets/css/style.css',
+            ROOT . '/public/assets/css/bsmselect.css',
+        ))->dumpCss();
+        
         $this->inlineScript()->offsetSetFile(-100, $jsFile);
         
 	    echo $this->headScript();
-	    echo $this->headStyle();
+	    ?>
+        <link href="<?php echo $cssFile;?>" media="screen" rel="stylesheet" type="text/css" />
+        <?php
+        echo $this->headStyle();
 	    ?>
 
 	</head>

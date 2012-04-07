@@ -12,7 +12,7 @@ class Bookshelf_BookController extends Munkirjat_Controller_Action
 		$this->view->inlineScript()->appendFile('/assets/js/bookshelf/bookshelf.js'); 
         */
         
-        $this->view->headLink()->appendStylesheet('/assets/css/bsmselect.css');  
+        //$this->view->headLink()->appendStylesheet('/assets/css/bsmselect.css');  
         
         $id = $this->_request->getParam('id');
         

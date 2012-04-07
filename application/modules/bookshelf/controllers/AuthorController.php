@@ -108,7 +108,7 @@ class Bookshelf_AuthorController extends Munkirjat_Controller_Action
 		$this->view->inlineScript()->appendFile('/assets/js/Jme/selector.js'); 		
 		$this->view->inlineScript()->appendFile('/assets/js/bookshelf/author.js');
 		*/
-        $this->view->headLink()->appendStylesheet('/assets/css/bsmselect.css');  
+        //$this->view->headLink()->appendStylesheet('/assets/css/bsmselect.css');  
 		
 		
 		$form = new Bookshelf_Form_AuthorSearchForm();
