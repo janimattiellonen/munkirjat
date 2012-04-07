@@ -21,6 +21,19 @@ echo $this->doctype()
 		
 		echo $this->headTitle();
 		
+        $cssFile = $this->assetic(ROOT . '/public/assets/assetic/css/main.css', '/assets/assetic/css/main.css?v=2')->addCssFiles(array(
+            ROOT . '/public/assets/css/1140.css',
+            ROOT . '/public/assets/css/style.css',
+            ROOT . '/public/assets/css/bsmselect.css',
+        ))->dumpCss();
+        
+	    ?>
+        <link href="<?php echo $cssFile;?>" media="screen" rel="stylesheet" type="text/css" />
+        
+        <?php        
+        
+        echo $this->headStyle();
+        
 		echo $this->headLink();
 		
 		echo $this->jQuery();
@@ -40,20 +53,9 @@ echo $this->doctype()
             ROOT . '/public/assets/js/jquery.raty-1.4.0/js/jquery.raty.min.js',
         ))->dumpJs();    
         
-        
-        $cssFile = $this->assetic(ROOT . '/public/assets/assetic/css/main.css', '/assets/assetic/css/main.css?v=2')->addCssFiles(array(
-            ROOT . '/public/assets/css/1140.css',
-            ROOT . '/public/assets/css/style.css',
-            ROOT . '/public/assets/css/bsmselect.css',
-        ))->dumpCss();
-        
         $this->inlineScript()->offsetSetFile(-100, $jsFile);
         
 	    echo $this->headScript();
-	    ?>
-        <link href="<?php echo $cssFile;?>" media="screen" rel="stylesheet" type="text/css" />
-        <?php
-        echo $this->headStyle();
 	    ?>
 
 	</head>
