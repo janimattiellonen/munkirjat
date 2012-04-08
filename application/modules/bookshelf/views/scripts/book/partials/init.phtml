@@ -1,60 +1,54 @@
 <?php $this->inlineScript()->captureStart(); ?>
-$(function() {
-    Munkirjat.bookshelf.add.initialize({
-    
-    	authors: {
-    		findAction: '<?php echo $this->url(array(
+
+
+var authorsFindAction = '<?php echo $this->url(array(
                          'module' => 'bookshelf',
                          'controller' => 'author',
                          'action' => 'find',
                          'format' => 'json',
-                       ), 'default', true); ?>',
-    	},
-    	
-    	genres: {
-    		findAction: '<?php echo $this->url(array(
+                       ), 'default', true); ?>';
+                       
+var genresFindAction = '<?php echo $this->url(array(
                          'module' => 'bookshelf',
                          'controller' => 'genre',
                          'action' => 'find',
                          'format' => 'json',
-                       ), 'default', true); ?>'
-    	},
-    	
-    	tags: {
-    		findAction: '<?php echo $this->url(array(
+                       ), 'default', true); ?>';
+                       
+var tagsFindAction = '<?php echo $this->url(array(
                          'module' => 'bookshelf',
                          'controller' => 'tag',
                          'action' => 'find',
                          'format' => 'json',
-                       ), 'default', true); ?>'
-    	
-    	},
-    
-        findAction: '<?php echo $this->url(array(
+                       ), 'default', true); ?>';
+
+var findAction = '<?php echo $this->url(array(
                          'module' => 'bookshelf',
                          'controller' => 'author',
                          'action' => 'find',
                          'format' => 'json',
-                       ), 'default', true); ?>',
-        findGenreAction: '<?php echo $this->url(array(
+                       ), 'default', true); ?>';
+
+var findGenreAction = '<?php echo $this->url(array(
                          'module' => 'bookshelf',
                          'controller' => 'genre',
                          'action' => 'find',
                          'format' => 'json',
-                       ), 'default', true); ?>',
-        findTagAction: '<?php echo $this->url(array(
+                       ), 'default', true); ?>';
+                       
+var findTagAction   = '<?php echo $this->url(array(
                          'module' => 'bookshelf',
                          'controller' => 'tag',
                          'action' => 'find',
                          'format' => 'json',
-                       ), 'default', true); ?>',
-        addTagAction: '<?php echo $this->url(array(
+                       ), 'default', true); ?>';
+
+var addTagAction = '<?php echo $this->url(array(
                          'module' => 'bookshelf',
                          'controller' => 'tag',
                          'action' => 'add',
                          'format' => 'json',
-                       ), 'default', true); ?>',
-        clearField: true
-    });
-});
+                       ), 'default', true); ?>';
+
+
 <?php $this->inlineScript()->captureEnd(); ?>

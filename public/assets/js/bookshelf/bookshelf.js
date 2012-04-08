@@ -24,3 +24,31 @@ Munkirjat.bookshelf.add = (function() {
 	};
     
 })();
+
+$(function() {
+    Munkirjat.bookshelf.add.initialize({
+    
+    	authors: {
+    		findAction: authorsFindAction
+    	},
+    	
+    	genres: {
+    		findAction: genresFindAction
+    	},
+    	
+    	tags: {
+    		findAction: tagsFindAction
+    	
+    	},
+    
+        findAction: findAction,
+        
+        findGenreAction: findGenreAction,
+        
+        findTagAction: findTagAction,
+        
+        addTagAction: addTagAction,
+        
+        clearField: true
+    });
+});

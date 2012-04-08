@@ -23,10 +23,11 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $view->addHelperPath("ZendX/JQuery/View/Helper", "ZendX_JQuery_View_Helper");
         $view->addHelperPath("Munkirjat/View/Helper", "Munkirjat_View_Helper");
         $view->addHelperPath("Jme/View/Helper", "Jme_View_Helper");
-        
+        /*
         $view->jQuery()->setLocalPath('http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js')
                ->setUiLocalPath('https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js')
                ->enable()->uiEnable();
+        */
         
         /*
         $view->jQuery()->setLocalPath($view->baseUrl('assets/js/jquery-1.6.1.min.js'))

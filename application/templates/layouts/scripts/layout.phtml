@@ -36,7 +36,7 @@ echo $this->doctype()
         
 		echo $this->headLink();
 		
-		echo $this->jQuery();
+		//echo $this->jQuery();
         
         
         $jsFile = $this->assetic(ROOT . '/public/assets/assetic/js/main-v2.js', '/assets/assetic/js/main-v2.js')->addJsFiles(array(
@@ -53,7 +53,7 @@ echo $this->doctype()
             ROOT . '/public/assets/js/jquery.raty-1.4.0/js/jquery.raty.min.js',
         ))->dumpJs();    
         
-        $this->inlineScript()->offsetSetFile(-100, $jsFile);
+        //$this->inlineScript()->offsetSetFile(-100, $jsFile);
         
 	    echo $this->headScript();
 	    ?>
@@ -116,8 +116,21 @@ echo $this->doctype()
 		</div>
 		
 		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
-		
-		<?php echo $this->inlineScript();?>
+        
+		<script type="text/javascript" src="/assets/js/modernizr.js"></script>
+        
+        <script type="text/javascript">
+        
+            Modernizr.load({
+            'load': [ 'http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js', '<?php echo $jsFile;?>'],
+            'complete': function() {
+             
+            }
+            });
+        </script>
+        
+        
+        <?php echo $this->inlineScript();?>
 	</body>
 
 </html>
