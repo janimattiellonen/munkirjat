@@ -1,15 +1,6 @@
 <?php
-
-/**
- * Default Layout
- *  
- * @author
- * @version
- */
-echo '<?xml version="1.0" encoding="UTF-8" ?>';
 echo $this->doctype() 
 ?>
-
 <html>
 
 	<head>
@@ -40,6 +31,7 @@ echo $this->doctype()
         
         
         $jsFile = $this->assetic(ROOT . '/public/assets/assetic/js/main-v2.js', '/assets/assetic/js/main-v2.js')->addJsFiles(array(
+            ROOT . '/public/assets/js/jquery.raty-1.4.0/js/jquery.raty.min.js',
             ROOT . '/public/assets/js/munkirjat.js',
             ROOT . '/public/assets/js/user/account.js',
             ROOT . '/public/assets/js/jquery.ui.sortable.js',
@@ -50,10 +42,23 @@ echo $this->doctype()
             ROOT . '/public/assets/js/Jme/selector.js',
             ROOT . '/public/assets/js/bookshelf/author.js',
             ROOT . '/public/assets/js/bookshelf/bookshelf.js',
-            ROOT . '/public/assets/js/jquery.raty-1.4.0/js/jquery.raty.min.js',
         ))->dumpJs();    
         
         //$this->inlineScript()->offsetSetFile(-100, $jsFile);
+        
+        ?>
+        
+        <script type="text/javascript">
+
+        <?php 
+        echo $this->render('partials/init-js-urls.phtml');
+        ?>
+
+        </script>
+        
+        <?php
+        
+        
         
 	    echo $this->headScript();
 	    ?>

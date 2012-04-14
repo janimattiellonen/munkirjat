@@ -165,7 +165,7 @@ class Bookshelf_BookController extends Munkirjat_Controller_Action
 	
 	public function viewAction()
 	{
-	    $this->view->inlineScript()->appendFile('/assets/js/jquery.raty-1.4.0/js/jquery.raty.min.js'); 
+	    //$this->view->inlineScript()->appendFile('/assets/js/jquery.raty-1.4.0/js/jquery.raty.min.js'); 
 	    
 	    $bm = new Bookshelf_Model_BookModel();
 	    

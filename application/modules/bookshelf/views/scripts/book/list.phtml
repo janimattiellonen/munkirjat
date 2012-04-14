@@ -46,22 +46,9 @@
 		<tr class="<?php echo $class;?>">
 			<td><?php echo $i;?></td>
 			<td><?php echo $this->linkTo($book->getTitle(), '/bookshelf/book/view/id/' . $book->getId() );?></td>
-			<td><div id="rating-<?php echo $book->getId();?>"></div></td>
+			<td><div class="rating-div" id="rating-<?php echo $book->getId();?>" data-read-only="<?php echo Munkirjat_Auth::isLoggedIn() ? 'false' : 'true';?>" data-rating="<?php echo $book->getRating();?>" data-book-id="<?php echo $book->getId();?>"></div></td>
 			
-			<?php 
-		    if($book->isRead() ):
-			    $this->inlineScript()->captureStart(); ?>
-			
-				$('#rating-' + <?php echo $book->getId();?>).raty({
-					start: <?php echo $book->getRating();?>,
-					path: '/img/',
-					click: rate,
-					readOnly: <?php echo Munkirjat_Auth::isLoggedIn() ? 'false' : 'true';?>
-				});
-            <?php 
-                $this->inlineScript()->captureEnd(); 
-            endif;
-            ?>
+
 		</tr>
 		<?php $i++; endforeach;?>
 	</table>

@@ -51,4 +51,19 @@ $(function() {
         
         clearField: true
     });
+    
+    $('.rating-div').each(function()
+    {
+	$(this).raty({
+		start: $(this).data('rating'),
+		path: '/img/',
+		click: rate,
+		readOnly: $(this).data('read-only')
+	});
+    });
+    
+    $('td.control a#delete').bind('click', function()
+    {
+    	return confirm('Do you really want to remove this book?');
+    });    
 });

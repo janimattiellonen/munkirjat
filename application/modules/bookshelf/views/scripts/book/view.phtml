@@ -42,19 +42,8 @@
 	<tr class="odd">
 		<th><?php echo $this->translate('Rating');?></th>
 		<td>
-			<div id="rating-<?php echo $this->book->getId();?>"></div>
-			<?php 
-			if($this->book->isRead() ):
-			    $this->inlineScript()->captureStart(); ?>
-			
-				$('#rating-' + <?php echo $this->book->getId();?>).raty({
-					start: <?php echo $this->book->getRating();?>,
-					path: '/img/',
-					click: rate
-				});
-            <?php 
-                $this->inlineScript()->captureEnd(); 
-             endif;?>	
+			<div class="rating-div" id="rating-<?php echo $this->book->getId();?>" data-read-only="false" data-rating="<?php echo $this->book->getRating();?>" data-book-id="<?php echo $this->book->getId();?>"></div></div>
+
 		</td>
 	</tr>
 
@@ -66,13 +55,3 @@
 		</td>
 	</tr>
 </table>
-
-
-<?php $this->inlineScript()->captureStart(); ?>
-$(function() {
-    $('td.control a#delete').bind('click', function()
-    {
-    	return confirm('Do you really want to remove this book?');
-    });
-});
-<?php $this->inlineScript()->captureEnd(); ?>

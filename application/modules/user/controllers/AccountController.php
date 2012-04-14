@@ -10,7 +10,7 @@ class User_AccountController extends Munkirjat_Controller_Action
             ->setAutoJsonSerialization(true)
             ->initContext();
 
-        $this->view->inlineScript()->appendFile('/assets/js/user/account.js');  
+        //$this->view->inlineScript()->appendFile('/assets/js/user/account.js');  
         $this->view->headLink()->appendStylesheet('/assets/css/user/account.css');  
 	}
 	
@@ -198,6 +198,7 @@ class User_AccountController extends Munkirjat_Controller_Action
     
     public function loginAction()
     {
+        try {
         $form = new User_Form_LoginForm();
         
         if($this->_request->isPost() )
@@ -221,8 +222,12 @@ class User_AccountController extends Munkirjat_Controller_Action
             }
         }
         
-        
         $this->view->form = $form;
+        }
+        catch(Exception $e)
+        {
+            die($e->getMessage() . " :" . $e->getTraceAsString() );
+        }
     }
     
     public function logoutAction()

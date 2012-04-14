@@ -18,8 +18,10 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
     {
         $this->bootstrap('view');
         $view = $this->getResource('view');
-        $view->doctype('XHTML1_STRICT');
-
+        //$view->doctype('XHTML1_STRICT');
+        $view->doctype('HTML5');
+        
+        
         $view->addHelperPath("ZendX/JQuery/View/Helper", "ZendX_JQuery_View_Helper");
         $view->addHelperPath("Munkirjat/View/Helper", "Munkirjat_View_Helper");
         $view->addHelperPath("Jme/View/Helper", "Jme_View_Helper");
