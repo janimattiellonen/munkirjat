@@ -89,7 +89,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 		if (APPLICATION_ENV == "development") {
 		    $config->setAutoGenerateProxyClasses(true);
 		} else {
-		    $config->setAutoGenerateProxyClasses(false);
+		    $config->setAutoGenerateProxyClasses(true);
 		}
 		
         if($cacheOptions['enabled'] == true)
