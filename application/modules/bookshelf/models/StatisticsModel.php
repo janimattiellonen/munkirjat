@@ -208,7 +208,9 @@ class Bookshelf_Model_StatisticsModel extends \Munkirjat\Model
         WHERE 
           is_read = 1
           AND started_reading IS NOT NULL
-          AND finished_reading IS NOT NULL");
+          AND started_reading > '2000-01-01 00:00:00'
+          AND finished_reading IS NOT NULL
+          AND finished_reading > '2000-01-01 00:00:00'");
 	    
 		$stmt->execute();
 		
