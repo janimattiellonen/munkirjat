@@ -89,7 +89,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 		if (APPLICATION_ENV == "development") {
 		    $config->setAutoGenerateProxyClasses(true);
 		} else {
-		    $config->setAutoGenerateProxyClasses(true);
+		    $config->setAutoGenerateProxyClasses(false);
 		}
 		
         if($cacheOptions['enabled'] == true)
@@ -134,6 +134,35 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
     	$role = \Munkirjat_Auth::getCurrentRole();
     	
     	$view->navigation($nav)->setAcl(Zend_Registry::get('Jme_Acl'))->setRole($role);
-    }	    
+    }	 
+    
+/**
+     * Get doctrine cache options
+     *
+     * @param  string                              $name
+     * @param  array                               $options
+     * @return Doctrine\Common\Cache\AbstractCache
+     */
+    private function _getDoctrineCache($name, array $options)
+    {
+        $cacheClass = "Doctrine\\Common\\Cache\\" . ucfirst($options[$name]) . "Cache";
+        $cache      = new $cacheClass();
+
+        if ($options[$name] == 'Memcache') {
+            if ($this->_memcache === null) {
+                $memcache = new Memcache();
+                $memcache->connect($options['memcacheOptions']['host'],
+                                   $options['memcacheOptions']['port']);
+
+                $this->_memcache = $memcache;
+            }
+
+            $cache->setMemcache($this->_memcache);
+        }
+
+        $cache->setNamespace('hrmerp_' . APPLICATION_ENV . '_doctrine_');
+
+        return $cache;
+    }
 }
 
