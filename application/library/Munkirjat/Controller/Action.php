@@ -80,4 +80,12 @@ class Munkirjat_Controller_Action extends Zend_Controller_Action
 	{
 		return \Jme\Request::createIdentifierFromRequest($params);
 	}
+    
+    /**
+     * @return Zend_Cache_Manager
+     */
+    protected function getCache($name)
+    {
+        return Zend_Registry::get('cachemanager')->getCache($name);
+    }
 }
