@@ -70,21 +70,12 @@ echo $this->doctype()
 		<div id="nav">
 			<?php echo $this->navigation()->menu()->render(); ?>
 		</div>
+        
+        <div id="simple_search" class="box box_top">
+<?php echo $this->partial('partials/simple-search.phtml');?>
+</div>
+        
 		<div id="container">
-    		<div id="sidebar_left" class="sidebar">
-    			<?php 
-                
-                                                
-                if(!($html = $this->cache('content')->load('sidebar_left') ) ):
-                    $html = $this->partial('partials/leftpanel.phtml');
-                    
-                    $this->cache('content')->save($html);
-                endif;
-                
-                echo $html;?>
-
-    		</div>			
-    		
     		<div id="main">	
     			<?php 
     			if(isset($this->messages) ):
@@ -106,6 +97,19 @@ echo $this->doctype()
     	
     		</div>
     		
+    		<div id="sidebar_left" class="sidebar">
+    			<?php 
+                
+                                                
+                if(!($html = $this->cache('content')->load('sidebar_left') ) ):
+                    $html = $this->partial('partials/leftpanel.phtml');
+                    
+                    $this->cache('content')->save($html);
+                endif;
+                
+                echo $html;?>
+
+    		</div>		
     		<div class="sidebar" id="sidebar_right">
     			<?php 
     			
