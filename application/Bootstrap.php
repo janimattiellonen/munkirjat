@@ -14,6 +14,19 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         Zend_Session::start();
     }
     
+    protected function _initSystemCacheManager()
+    {
+        $this->bootstrap('cachemanager');
+        $cacheManager = $this->getResource('cachemanager');
+        
+        if($cacheManager)
+        {
+            Zend_Registry::set('cachemanager', $cacheManager);
+        }
+        
+        return $cacheManager;
+    }
+    
     protected function _initDoctype()
     {
         $this->bootstrap('view');

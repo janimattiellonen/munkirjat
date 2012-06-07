@@ -10,7 +10,7 @@ class Munkirjat_Acl extends Jme_Acl_Abstract
 	 */
 	protected function _load() 
 	{
-		$this->add(new Zend_Acl_Resource('admin_cache') );
+		$this->add(new Zend_Acl_Resource('bookshelf_admin') );
 		$this->add(new Zend_Acl_Resource('admin_beautifurl') );
 		$this->add(new Zend_Acl_Resource('admin_lucene') );
 		$this->add(new Zend_Acl_Resource('admin_doctrine') );
@@ -48,7 +48,7 @@ class Munkirjat_Acl extends Jme_Acl_Abstract
 		$this->addRole($admin, $guest);
 		$this->addRole($registeredUser, $guest);
 		
-		$this->allow('admin', 'admin_cache', array('manage', 'clear') );
+		$this->allow('admin', 'bookshelf_admin', array('clear') );
 		$this->allow('admin', 'admin_beautifurl', array('manage', 'recreate') );
 		$this->allow('admin', 'admin_lucene', array('manage', 'recreate') );
 		$this->allow('admin', 'admin_doctrine', array('create') );
